@@ -2,6 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Library](https://img.shields.io/badge/Library-Scikit--Learn-orange)
+![Interface](https://img.shields.io/badge/Interface-Gradio-purple)
 ![Platform](https://img.shields.io/badge/Platform-Google%20Colab-yellow)
 
 Bu proje, veri madenciliği ve makine öğrenmesi teknikleri kullanılarak çalışanların şirketten ayrılma (attrition) olasılıklarını tahmin etmek ve İnsan Kaynakları departmanına stratejik içgörüler sunmak amacıyla geliştirilmiştir.
@@ -25,6 +26,7 @@ Proje **Python** dili kullanılarak **Google Colab** ortamında geliştirilmişt
 * **Veri İşleme:** Pandas, NumPy
 * **Görselleştirme:** Matplotlib, Seaborn
 * **Makine Öğrenmesi:** Scikit-learn (sklearn)
+* **Arayüz (UI):** Gradio
 
 ### Algoritmalar ve Model Karşılaştırması
 Proje kapsamında 4 farklı sınıflandırma algoritması eğitilmiş ve performansları karşılaştırılmıştır:
@@ -40,6 +42,19 @@ Proje kapsamında 4 farklı sınıflandırma algoritması eğitilmiş ve perform
 Tabloda görüldüğü üzere SVM en yüksek doğruluğu vermiş olsa da, proje için nihai model olarak **Random Forest** seçilmiştir. Bunun nedenleri:
 1.  **Yorumlanabilirlik (Explainability):** İK yönetimine "Neden?" sorusunun cevabını verebilmek için Random Forest'ın `feature_importances_` özelliği kullanılmıştır.
 2.  **Dengesiz Veri:** Veri setindeki dengesizliğe (Imbalanced Data) karşı karar ağacı tabanlı yapıların daha dirençli olması.
+
+## 🖥️ İnteraktif Demo (Gradio Arayüzü)
+Projenin son kullanıcı (İK Uzmanları) tarafından kolayca deneyimlenmesi amacıyla **Gradio** kütüphanesi kullanılarak web tabanlı bir arayüz geliştirilmiştir.
+
+Kullanım kolaylığı sağlamak adına, 35 sütunluk veri seti içerisinden **en kritik 5 özellik** seçilerek model bu özelliklerle optimize edilmiştir. Kullanıcılar aşağıdaki parametreleri girerek anlık risk analizi yapabilirler:
+
+1.  **Fazla Mesai (OverTime)**
+2.  **Aylık Gelir (MonthlyIncome)**
+3.  **Toplam Çalışma Yılı (TotalWorkingYears)**
+4.  **Eve Uzaklık (DistanceFromHome)**
+5.  **Yaş (Age)**
+
+Sistem, girilen verilere göre çalışanın istifa etme ihtimalini **yüzdesel (%)** olarak hesaplar ve risk durumuna göre uyarı verir.
 
 ## 📊 Önemli Bulgular
 Modelin analizine göre istifayı tetikleyen en önemli 3 faktör:
